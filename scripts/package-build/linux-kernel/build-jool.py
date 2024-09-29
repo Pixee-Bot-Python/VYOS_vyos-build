@@ -42,7 +42,7 @@ SOURCES_URL: str = f'https://github.com/NICMx/Jool/archive/7f08c42c615ed63cf0fdc
 
 # download sources
 sources_archive = Path(SOURCES_ARCHIVE)
-sources_archive.write_bytes(get(SOURCES_URL).content)
+sources_archive.write_bytes(get(SOURCES_URL, timeout=60).content)
 
 # prepare sources
 debmake_cmd: list[str] = [
